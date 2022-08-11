@@ -1,41 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   valid_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/11 15:05:26 by joeduard          #+#    #+#             */
-/*   Updated: 2022/08/11 17:33:28 by joeduard         ###   ########.fr       */
+/*   Created: 2022/08/11 17:33:53 by joeduard          #+#    #+#             */
+/*   Updated: 2022/08/11 17:46:36 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/cub3d.h"
+#include "../includes/cub3d.h"
 
-int	main(int argc, char **argv)
+void map_check_init(t_map *map)
 {
-	t_game	game;
+	map->collectible = 0;
+	map->exit = 0;
+	map->map_row_size = 0;
+	map->map_col_size = 0;
+	map->player = 0;
+}
 
-	if (argc == 2)
-	{
-		game.map = read_map(argv[1]);
-		if (is_valid_map(game.map, argv[1]))
-		{
-			printf("MAP is valid");
-			//init_game
-			//event_handler
-			//mlx_loop
-		}
-		else
-		{
-			printf("Error\n This map is not valid!");
-			//free_map(game.map)
-			exit(0);
-		}
-	}
-	else
-	{
-		printf("No map especified!");
-		exit(0);
-	}
+int	is_valid_map(char **map, char *file)
+{
+	t_map mp;
+
+	if(!map)
+		return (0);
+	map_check_init(&mp);
+	if(has_valid_walls(map, &mp) && has_valid_chars(map)
+		&&has_minimum_chars(map, &mp) && has_valid_extesion(file))
+		return (1);
+	return(0);
 }

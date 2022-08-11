@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 15:06:54 by joeduard          #+#    #+#             */
-/*   Updated: 2022/08/11 16:55:20 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/08/11 17:38:33 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,20 @@ typedef struct s_game
 
 }		t_game;
 
+typedef struct s_map
+{
+	int	collectible;
+	int	exit;
+	int	map_row_size;
+	int	map_col_size;
+	int	player;
+	int	space;
+
+}	t_map;
+
 
 char **read_map(char *path_to_file);
+int	is_valid_map(char **map, char *file);
 
 
 #endif
