@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 15:06:54 by joeduard          #+#    #+#             */
-/*   Updated: 2022/08/11 17:38:33 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/08/11 18:57:22 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,16 @@ typedef struct s_map
 
 }	t_map;
 
-
+//read_map.c
 char **read_map(char *path_to_file);
+
+//valid_map.c
 int	is_valid_map(char **map, char *file);
 
+//map_check.c
+int	has_valid_walls(char **map, t_map *mp);
+int	has_valid_chars(char **map);
+int	has_minimum_chars(char **map, t_map *mp);
+int has_valid_extension(char *file);   
 
 #endif
