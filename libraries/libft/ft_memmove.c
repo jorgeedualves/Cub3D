@@ -1,21 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/11 15:06:54 by joeduard          #+#    #+#             */
-/*   Updated: 2022/08/11 15:10:23 by joeduard         ###   ########.fr       */
+/*   Created: 2021/05/20 14:06:06 by joeduard          #+#    #+#             */
+/*   Updated: 2021/10/14 16:58:21 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef CUB3D_H
-#define CUB3D_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <unistd.h>
-# include <fcntl.h>
-# include <stdlib.h>
+void	*ft_memmove(void *dst, const void *src, size_t len)
+{
+	char	*aux_dst;
+	char	*aux_src;
 
-#endif
+	aux_dst = dst;
+	aux_src = (char *)src;
+	if (dst > src)
+	{
+		aux_dst = aux_dst + len - 1;
+		aux_src = aux_src + len - 1;
+		while (len >= 1)
+		{
+			*aux_dst = *aux_src;
+			aux_dst--;
+			aux_src--;
+			len--;
+		}
+	}
+	else
+		ft_memcpy(dst, src, len);
+	return (dst);
+}

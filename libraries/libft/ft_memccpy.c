@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/11 15:06:54 by joeduard          #+#    #+#             */
-/*   Updated: 2022/08/11 15:10:23 by joeduard         ###   ########.fr       */
+/*   Created: 2021/05/17 15:10:32 by joeduard          #+#    #+#             */
+/*   Updated: 2021/10/14 16:48:03 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef CUB3D_H
-#define CUB3D_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <unistd.h>
-# include <fcntl.h>
-# include <stdlib.h>
+void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
+{
+	unsigned char	*aux_dst;
+	unsigned char	*aux_src;
 
-#endif
+	aux_dst = (unsigned char *)dest;
+	aux_src = (unsigned char *)src;
+	while (n--)
+	{
+		*(aux_dst++) = *aux_src;
+		if (*(aux_src++) == (unsigned char)c)
+			return ((char *)aux_dst);
+	}
+	return (0);
+}
