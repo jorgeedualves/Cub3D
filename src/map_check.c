@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 18:06:00 by joeduard          #+#    #+#             */
-/*   Updated: 2022/08/11 18:52:41 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/08/11 22:34:58 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	has_valid_walls(char **map, t_map *mp)
 	int j;
 
 	while(map[mp->map_col_size])
-		mp->map_col_size;
+		mp->map_col_size++;
 	mp->map_col_size--;
 	mp->map_row_size = ft_strlen(*map) - 1;
 	i = 0;

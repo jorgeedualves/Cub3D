@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 15:05:26 by joeduard          #+#    #+#             */
-/*   Updated: 2022/08/11 17:33:28 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/08/11 22:48:22 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,5 @@ int	main(int argc, char **argv)
 		printf("No map especified!");
 		exit(0);
 	}
+	return (0);
 }

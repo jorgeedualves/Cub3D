@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 17:33:53 by joeduard          #+#    #+#             */
-/*   Updated: 2022/08/11 17:46:36 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/08/11 22:49:56 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	is_valid_map(char **map, char *file)
 		return (0);
 	map_check_init(&mp);
 	if(has_valid_walls(map, &mp) && has_valid_chars(map)
-		&&has_minimum_chars(map, &mp) && has_valid_extesion(file))
+		&&has_minimum_chars(map, &mp) && has_valid_extension(file))
 		return (1);
 	return(0);
 }
