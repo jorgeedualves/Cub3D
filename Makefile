@@ -1,55 +1,52 @@
-NAME = cub3d
+NAME			=	cub3d
 
-LIBFT_DIR = libraries/libft
-LIBFT = $(LIBFT_DIR)/libft.a
+CC				=	clang
 
-# MLX_DIR = libraries/mlx_linux
-# MLX = $(MLX_DIR)/libmlx.a
+LIB				=	./libraries/libft/libft.a
 
-RM = rm -rf
+FLAGS			=	-Wall -Werror -Wextra -g -fsanitize=address
+INC				=	-I ./inc -I ./libft
 
-#IMG_DIR = assets/IMG_DIR
+SRC_DIR			=	./src
+OBJ_DIR			=	./obj
 
-SRC_DIR = src
+FILES			=	cub3d.c
+FILES			+=	get_next_line.c map_check.c read_map.c valid_map.c exit_game.c 
 
-OBJ_DIR = obj
+SRC				=	$(addprefix $(SRC_DIR)/, $(FILES))
+OBJ				=	$(addprefix $(OBJ_DIR)/, $(FILES:.c=.o))
 
-HEADERS = includes/cub3d.h
+all:			$(NAME)
 
-INCLUDE_DIR = includes
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	@mkdir -p obj
+	$(CC) $(FLAGS) $(INC) -c $< -o $@
 
-SRC_FILES = cub3d.c map_check.c read_map.c valid_map.c  get_next_line.c\
+$(NAME):	$(LIB) $(OBJ)
+	@$(CC) $(FLAGS) $(OBJ) $(LIB) $(INC) -o $(NAME)
+	@echo "Game created!"
 
-SRC = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
+$(LIB):
+	make -C libraries/libft
 
-OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
-
-cc = clang
-CFLAGS = -Wall -Wextra -Werror
-
-all: $(NAME)
-
-$(NAME): $(OBJ_DIR) $(LIBFT) $(OBJ)
-	$(CC) $(OBJ) -L$(LIBFT_DIR) -o $@
-
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(HEADERS)
-	$(CC) $(CFLAGS) -c -I$(INCLUDE_DIR) -o $@ $<
-
-$(LIBFT):
-	make -C $(LIBFT_DIR)
-
-$(OBJ_DIR):
-	mkdir $(OBJ_DIR)
-
-run: ./$(NAME) "assets/maps/map.ber"
+run:
+	./cub3d "assets/maps/map.ber"
 
 clean:
-	$(RM) $(OBJ_DIR)
+	@make -C ./libraries/libft clean
+	@rm -fr obj
+	@echo "Objects files deleted."
 
-fclean: clean
-		make -C $(LIBFT_DIR) fclean
-		$(RM) $(NAME)
+fclean:	clean
+	@rm -f $(NAME) $(LIB)
+#	@make -C ./libft fclean
+	@echo "Executable deleted."
 
-re: fclean all
+bonus:	$(NAME)
 
-.PHONY: clean fclean all re
+norm:
+	norminette src inc libft
+
+re:		fclean all
+
+.PHONY:	all, clean, fclean, bonus, re

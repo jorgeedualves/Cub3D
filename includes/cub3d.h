@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 15:06:54 by joeduard          #+#    #+#             */
-/*   Updated: 2022/08/11 22:49:20 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/08/15 17:03:16 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@
 # include <string.h>
 # include "../libraries/mlx_linux/mlx.h"
 # include "../libraries/libft/libft.h"
-
-
 typedef struct s_game
 {
 	char	**map;
@@ -53,5 +51,8 @@ int has_valid_extension(char *file);
 
 //get_next_line
 char	*get_next_line(int fd);
+
+// exit_game.c
+void	free_map(char **map);
 
 #endif

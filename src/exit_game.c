@@ -1,43 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   exit_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/11 15:05:26 by joeduard          #+#    #+#             */
-/*   Updated: 2022/08/15 17:02:33 by joeduard         ###   ########.fr       */
+/*   Created: 2022/08/15 17:01:49 by joeduard          #+#    #+#             */
+/*   Updated: 2022/08/15 17:12:57 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../includes/cub3d.h"
 
-int	main(int argc, char **argv)
+void	free_map(char **map)
 {
-	t_game	game;
+	int	i;
 
-	if (argc == 2)
+	if (!map)
+		return ;
+	i = 0;
+	while (map[i])
 	{
-		game.map = read_map(argv[1]);
-		if (is_valid_map(game.map, argv[1]))
-		{
-			printf("MAP is valid\n");
-			free_map(game.map);
-			//init_game
-			//event_handler
-			//mlx_loop
-		}
-		else
-		{
-			printf("Error\n This map is not valid!\n");
-			free_map(game.map);
-			exit(0);
-		}
+		ft_super_free((void *)&map[i]);
+		i++;
 	}
-	else
-	{
-		printf("No map especified!\n");
-		exit(0);
-	}
-	return (0);
+	ft_super_free((void *)&map);
 }

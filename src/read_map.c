@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 16:53:53 by joeduard          #+#    #+#             */
-/*   Updated: 2022/08/11 17:23:13 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/08/15 16:45:32 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char **read_map(char *path_to_file)
 		ft_super_free((void *)&line);
 	}
 	map = ft_split(buffer, '\n');
-	ft_super_free((void *)&line);
+	ft_super_free((void *)&buffer);
 	close(fd);
 	return (map);
 }
