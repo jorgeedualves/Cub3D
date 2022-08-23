@@ -29,7 +29,6 @@ typedef struct s_game
 typedef struct s_map
 {
 	int	collectible;
-	int	exit;
 	int	map_row_size;
 	int	map_col_size;
 	int	player;

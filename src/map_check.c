@@ -49,9 +49,7 @@ int	has_valid_chars(char **map)
 		j = 0;
 		while (map[i][j])
 		{
-			if (map[i][j] !='1' && map[i][j] != '0'
-				&& map[i][j] != 'P' && map[i][j] != 'C'
-				&& map[i][j] != 'E')
+			if (map[i][j] !='1' && map[i][j] != '0' && map[i][j] != 'N')
 				return (0);
 			j++;
 		}
@@ -71,15 +69,11 @@ int	has_minimum_chars(char **map, t_map *mp)
 		j = 0;
 		while (map[i][j])
 		{
-			if (map[i][j] == 'P')
+			if (map[i][j] == 'N')
 				mp->player++;
-			if (map[i][j] == 'C')
-				mp->collectible++;
-			if (map[i][j] == 'E')
-				mp->exit++;
-			if(map[i][j] == '0')
+			if (map[i][j] == '0')
 				mp->space++;
-			if(mp->collectible && mp->exit && mp->player && mp->space)
+			if (mp->player && mp->space)
 				return (1);
 			j++;
 		}
@@ -95,7 +89,7 @@ int has_valid_extension(char *file)
 	if (!file)
 		return (0);
 	ext = ft_strrchr(file, '.');
-	if (ft_strncmp(ext, ".ber", 5))
+	if (ft_strncmp(ext, ".cub", 5))
 		return (0);
 	return (1);
 }

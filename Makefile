@@ -4,7 +4,7 @@ CC				=	clang
 
 LIB				=	./libraries/libft/libft.a
 
-FLAGS			=	-Wall -Werror -Wextra -g -fsanitize=address
+FLAGS			=	-Wall -Werror -Wextra -g #-fsanitize=address
 INC				=	-I ./inc -I ./libft
 
 SRC_DIR			=	./src
