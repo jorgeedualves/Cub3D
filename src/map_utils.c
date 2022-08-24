@@ -1,42 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   map_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/11 15:05:26 by joeduard          #+#    #+#             */
-/*   Updated: 2022/08/24 16:46:24 by joeduard         ###   ########.fr       */
+/*   Created: 2022/08/23 14:27:17 by joeduard          #+#    #+#             */
+/*   Updated: 2022/08/23 14:31:00 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../includes/cub3d.h"
 
-int	main(int argc, char **argv)
+void	map_counter(char **map, t_game *game)
 {
-	t_game	game;
+	int i;
 
-	if (argc == 2)
+	i = 0;
+	game->win_height = 0;
+	while(map[i])
 	{
-		game.map = read_map(argv[1]);
-		if (is_valid_map(game.map, argv[1]))
-		{
-			printf("MAP is valid\n");
-			init_game(&game);
-			//event_handler
-			mlx_loop(game.mlx);
-		}
-		else
-		{
-			printf("Error\n This map is not valid!\n");
-			free_map(game.map);
-			exit(0);
-		}
+		game->win_height++;
+		i++;
 	}
-	else
-	{
-		printf("No map especified!\n");
-		exit(0);
-	}
-	return (0);
+	game->win_width = ft_strlen(*map);
 }

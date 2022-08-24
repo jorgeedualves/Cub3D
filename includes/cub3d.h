@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 15:06:54 by joeduard          #+#    #+#             */
-/*   Updated: 2022/08/15 17:03:16 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/08/24 17:00:13 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,45 @@
 # include <string.h>
 # include "../libraries/mlx_linux/mlx.h"
 # include "../libraries/libft/libft.h"
+
+# define XK_MISCELLANY
+# include <X11/keysymdef.h>
+# include <X11/X.h>
+
+# define SPRITE_SIZE	32
+
+# define FILE_WALL	"textures/1.xpm"
+# define FILE_SPACE	"textures/0.xpm"
+# define FILE_COLLECTIBLE	"textures/C.xpm"
+# define FILE_EXIT	"textures/E.xpm"
+# define FILE_PLAYER_U	"textures/P_U.xpm"
+# define FILE_PLAYER_D	"textures/P_D.xpm"
+# define FILE_PLAYER_L	"textures/P_L.xpm"
+# define FILE_PLAYER_R	"textures/P_R.xpm"
+
 typedef struct s_game
 {
+	
+	void	*mlx;
+	void	*img;
+	void	*win;
+	void	*wall;
+	void	*empty_space;
+	void	*player_right;
+	void	*player_left;
+	void	*player_up;
+	void	*player_down;
 	char	**map;
+	int		img_width;
+	int		img_height;
+	int		win_width;
+	int		win_height;
+	int		x;
+	int		y;
+	int 	moves;
+	int 	player_direction;
+	int 	end_game;
+	
 
 }		t_game;
 
@@ -36,22 +72,36 @@ typedef struct s_map
 
 }	t_map;
 
+
+// exit_game.c
+void	free_map(char **map);
+
+//get_next_line
+char	*get_next_line(int fd);
+
+//init_game.c
+void	init_game(t_game *game);
+
+//init_image.c
+void	initialize_image(t_game *game);
+
+//init_window.c
+void    init_window(t_game *game);
+
+//map_check.c
+int	has_valid_walls(char **map, t_map *mp);
+int	has_valid_chars(char **map);
+int	has_minimum_chars(char **map, t_map *mp);
+int has_valid_extension(char *file);
+
+//map_utils.c
+void	map_counter(char **map, t_game *game);
+
 //read_map.c
 char **read_map(char *path_to_file);
 
 //valid_map.c
 int	is_valid_map(char **map, char *file);
 
-//map_check.c
-int	has_valid_walls(char **map, t_map *mp);
-int	has_valid_chars(char **map);
-int	has_minimum_chars(char **map, t_map *mp);
-int has_valid_extension(char *file); 
-
-//get_next_line
-char	*get_next_line(int fd);
-
-// exit_game.c
-void	free_map(char **map);
 
 #endif
