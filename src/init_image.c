@@ -6,11 +6,11 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 14:43:06 by joeduard          #+#    #+#             */
-/*   Updated: 2022/08/24 17:04:06 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/08/25 15:58:03 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/cub3d.h"
+#include "../includes/cub3d.h"
 
 static void	*convert_image(char *img, t_game *game)
 {

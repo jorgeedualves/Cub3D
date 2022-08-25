@@ -6,11 +6,11 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 17:01:49 by joeduard          #+#    #+#             */
-/*   Updated: 2022/08/15 17:12:57 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/08/25 14:35:22 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/cub3d.h"
+#include "../includes/cub3d.h"
 
 void	free_map(char **map)
 {

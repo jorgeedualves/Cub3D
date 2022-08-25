@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 15:06:54 by joeduard          #+#    #+#             */
-/*   Updated: 2022/08/24 17:00:13 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/08/25 17:06:48 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@
 # include <X11/keysymdef.h>
 # include <X11/X.h>
 
-# define SPRITE_SIZE	32
+# define WINDOW_SIZE	1024
+# define WINDOW_HEIGHT	510
 
 # define FILE_WALL	"textures/1.xpm"
 # define FILE_SPACE	"textures/0.xpm"

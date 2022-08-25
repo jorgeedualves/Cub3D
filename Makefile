@@ -6,7 +6,7 @@
 #    By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/24 15:38:22 by joeduard          #+#    #+#              #
-#    Updated: 2022/08/24 16:28:18 by joeduard         ###   ########.fr        #
+#    Updated: 2022/08/25 16:40:46 by joeduard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,6 @@ clean:
 
 fclean:	clean
 	@rm -f $(NAME) $(LIB) $(MLX)
-	@make -C ./libft fclean
 	@echo "Executable deleted."
 
 bonus:	$(NAME)
