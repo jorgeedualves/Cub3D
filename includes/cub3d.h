@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 15:06:54 by joeduard          #+#    #+#             */
-/*   Updated: 2022/08/25 17:06:48 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/08/26 14:16:51 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # include <X11/keysymdef.h>
 # include <X11/X.h>
 
-# define WINDOW_SIZE	1024
+# define WINDOW_RIGHT	1024
 # define WINDOW_HEIGHT	510
 
 # define FILE_WALL	"textures/1.xpm"
@@ -80,6 +80,9 @@ void	free_map(char **map);
 //get_next_line
 char	*get_next_line(int fd);
 
+//hook_player.c
+void	hook_player(t_game *game, int i, int j);
+
 //init_game.c
 void	init_game(t_game *game);
 
@@ -94,6 +97,10 @@ int	has_valid_walls(char **map, t_map *mp);
 int	has_valid_chars(char **map);
 int	has_minimum_chars(char **map, t_map *mp);
 int has_valid_extension(char *file);
+
+//map_render.c
+void map_render(char **map, t_game game);
+void drawn_image(t_game *game, void *img, int x, int y);
 
 //map_utils.c
 void	map_counter(char **map, t_game *game);
