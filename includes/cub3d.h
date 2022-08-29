@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 15:06:54 by joeduard          #+#    #+#             */
-/*   Updated: 2022/08/26 14:16:51 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/08/29 12:55:43 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,19 @@
 # define FILE_PLAYER_D	"textures/P_D.xpm"
 # define FILE_PLAYER_L	"textures/P_L.xpm"
 # define FILE_PLAYER_R	"textures/P_R.xpm"
+
+
+# define X_EVENT_KEY_PRESS	2
+# define X_EVENT_DESTROY_NOTIFY	17
+# define KEY_W	119
+# define KEY_A	97
+# define KEY_S	115
+# define KEY_D	100
+
+# define KEY_UP		65362
+# define KEY_LEFT	65361
+# define KEY_DOWN	65364
+# define KEY_RIGHT	65363
 
 typedef struct s_game
 {
