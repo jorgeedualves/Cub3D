@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 22:10:14 by joeduard          #+#    #+#             */
-/*   Updated: 2022/08/29 22:14:22 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/08/30 15:31:02 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	handle_0(t_game *game, int x, int y)	// lidar com zero
 
 	i = game->x;
 	j = game->y;
-	swap_positions(&game->map[i][j], &game->map[x][y], 'P', '0');
+	swap_positions(&game->map[i][j], &game->map[x][y], 'N', '0');
 	game->moves++;
 	game->x = x;
 	game->y = y;
