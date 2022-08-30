@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 15:06:54 by joeduard          #+#    #+#             */
-/*   Updated: 2022/08/29 12:55:43 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/08/29 21:42:13 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,9 +86,15 @@ typedef struct s_map
 
 }	t_map;
 
+// event_handler.c
+void	event_handler(t_game *game);
 
 // exit_game.c
 void	free_map(char **map);
+int	exit_game(t_game *game);
+
+//game_utils
+int key_press(int keycode, t_game *game);
 
 //get_next_line
 char	*get_next_line(int fd);
