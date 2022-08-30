@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 15:06:54 by joeduard          #+#    #+#             */
-/*   Updated: 2022/08/29 22:28:24 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/08/30 14:58:25 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,12 @@
 
 # define FILE_WALL	"textures/1.xpm"
 # define FILE_SPACE	"textures/0.xpm"
-# define FILE_COLLECTIBLE	"textures/C.xpm"
-# define FILE_EXIT	"textures/E.xpm"
 # define FILE_PLAYER_U	"textures/P_U.xpm"
 # define FILE_PLAYER_D	"textures/P_D.xpm"
 # define FILE_PLAYER_L	"textures/P_L.xpm"
 # define FILE_PLAYER_R	"textures/P_R.xpm"
 
+# define SPRITE_SIZE	32
 
 # define X_EVENT_KEY_PRESS	2
 # define X_EVENT_DESTROY_NOTIFY	17
@@ -120,6 +119,7 @@ void draw_image(t_game *game, void *img, int x, int y);
 
 //map_utils.c
 void	map_counter(char **map, t_game *game);
+void	print_map(char **map);
 
 //move_player.c
 void	handle_situation(t_game *game, int x, int y);

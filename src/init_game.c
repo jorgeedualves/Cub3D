@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 14:01:52 by joeduard          #+#    #+#             */
-/*   Updated: 2022/08/29 22:38:18 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/08/30 13:46:04 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	initialize_rendering(t_game *game)
 	
 	printf("Chegou aqui no initialize_rendering\n");
 	initialize_image(game);
-	mlx_put_image_to_window(game->mlx, game->win, game->player_down, 300, 300);
+	//mlx_put_image_to_window(game->mlx, game->win, game->player_down, 300, 300);
 	map_render(game->map, game);
 }
 

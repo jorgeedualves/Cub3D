@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 14:27:17 by joeduard          #+#    #+#             */
-/*   Updated: 2022/08/25 14:40:02 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/08/30 13:49:40 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,17 @@ void	map_counter(char **map, t_game *game)
 		i++;
 	}
 	game->win_width = ft_strlen(*map);
+}
+
+void	print_map(char **map)
+{
+	int	i;
+
+	i = 0;
+	while (map[i])
+	{
+		printf("%s\n", map[i]);
+		i++;
+	}
+	printf("\n");
 }

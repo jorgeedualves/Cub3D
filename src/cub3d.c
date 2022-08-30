@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 15:05:26 by joeduard          #+#    #+#             */
-/*   Updated: 2022/08/25 14:40:40 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/08/30 13:51:18 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,12 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		game.map = read_map(argv[1]);
+		print_map(game.map);
 		if (is_valid_map(game.map, argv[1]))
 		{
 			printf("MAP is valid\n");
 			init_game(&game);
-			//event_handler
+			event_handler(&game);
 			mlx_loop(game.mlx);
 		}
 		else
