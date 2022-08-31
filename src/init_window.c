@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 14:34:47 by joeduard          #+#    #+#             */
-/*   Updated: 2022/08/26 13:31:45 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/08/31 16:52:25 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	init_window(t_game *game)
 {
-	game->win = mlx_new_window (game->mlx, WINDOW_RIGHT, WINDOW_HEIGHT, "CUB3D");
+	game->win = mlx_new_window (game->mlx, game->win_width * SPRITE_SIZE, game->win_height * SPRITE_SIZE, "CUB3D");
 }
