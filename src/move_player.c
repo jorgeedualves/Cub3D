@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 22:10:14 by joeduard          #+#    #+#             */
-/*   Updated: 2022/08/30 15:31:02 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/09/01 16:51:03 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,3 +40,9 @@ void	handle_situation(t_game *game, int x, int y)
 		    	handle_0(game, x, y);	
         }
 }
+
+
+// void	handle_angle(t_game *game, int x, int y)
+// {
+
+// }

@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 17:35:41 by joeduard          #+#    #+#             */
-/*   Updated: 2022/08/30 14:58:22 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/09/02 13:35:13 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,12 @@ void map_render(char **map, t_game *game)
         while (map[i][j])
         {
             if (map[i][j] == '1')
-                draw_image(game, game->wall, i, j);
-            if (map[i][j] == '0')
-                draw_image(game, game->empty_space, i, j);
-            if (map[i][j] == 'N')
-                hook_player(game, i, j);
+             draw_image(game, game->wall, i, j); // trocar para get color
+             //   mlx_string_put(game->mlx, game->win, 80, 80, 250, "1");
+          //  if (map[i][j] == '0')
+               // draw_image(game, game->empty_space, i, j);
+         //   if (map[i][j] == 'N')
+               // hook_player(game, i, j);
             j++;
         }
         i++;

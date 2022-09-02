@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 15:06:54 by joeduard          #+#    #+#             */
-/*   Updated: 2022/08/30 14:58:25 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/09/02 12:55:30 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ typedef struct s_game
 	int 	moves;
 	int 	player_direction;
 	int 	end_game;
-	
+	char	string;
 
 }		t_game;
 
