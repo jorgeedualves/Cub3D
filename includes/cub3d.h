@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 15:06:54 by joeduard          #+#    #+#             */
-/*   Updated: 2022/09/02 12:55:30 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/09/05 13:03:46 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <string.h>
+# include <math.h>
 # include "../libraries/mlx_linux/mlx.h"
 # include "../libraries/libft/libft.h"
 
@@ -36,6 +37,7 @@
 # define FILE_PLAYER_R	"textures/P_R.xpm"
 
 # define SPRITE_SIZE	32
+# define PI 3.1415926535
 
 # define X_EVENT_KEY_PRESS	2
 # define X_EVENT_DESTROY_NOTIFY	17
@@ -70,6 +72,9 @@ typedef struct s_game
 	int		y;
 	int 	moves;
 	int 	player_direction;
+	float	player_delta_x;
+	float	player_delta_y;
+	float	player_angle;
 	int 	end_game;
 	char	string;
 

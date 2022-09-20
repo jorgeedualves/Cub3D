@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 14:01:52 by joeduard          #+#    #+#             */
-/*   Updated: 2022/09/02 13:27:48 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/09/13 14:36:48 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ static void	initialize_data(t_game *game)
 	game->moves = 0;
 	game->end_game = 0;
 	//game->player_direction = 'r';
-	game->x = 60;
-	game->y = 60;
+	game->x = 12;
+	game->y = 12;
 }
 
 static void	initialize_rendering(t_game *game)
@@ -38,11 +38,11 @@ static void	initialize_rendering(t_game *game)
 	init_window(game);	
 	printf("Chegou aqui no initialize_rendering\n");
 	initialize_image(game);
-	//mlx_pixel_put(game->mlx, game->win, game->x, game->y, 001);
-	mlx_string_put(game->mlx, game->win, game->x, game->y, 255, "X");
-	//mlx_put_image_to_window(game->mlx, game->win, game->player_down, 300, 300);
+	mlx_pixel_put(game->mlx, game->win, game->x, game->y, 110);
+	//mlx_string_put(game->mlx, game->win, game->x, game->y, 255, "X");
+	//mlx_put_image_to_window(game->mlx, game->win, game->player_down, game->x , game->y);
 	map_render(game->map, game);
-	//event_handler(game);
+	event_handler(game);
 }
 
 void	init_game(t_game *game)
