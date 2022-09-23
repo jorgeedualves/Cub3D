@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 15:06:54 by joeduard          #+#    #+#             */
-/*   Updated: 2022/09/05 13:03:46 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/09/22 15:28:32 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@
 # define FILE_PLAYER_L	"textures/P_L.xpm"
 # define FILE_PLAYER_R	"textures/P_R.xpm"
 
+# define TILE_SIZE	32
 # define SPRITE_SIZE	32
 # define PI 3.1415926535
 
