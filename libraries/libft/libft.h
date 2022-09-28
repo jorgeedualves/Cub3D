@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 11:16:40 by joeduard          #+#    #+#             */
-/*   Updated: 2021/10/14 16:57:51 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/09/28 13:42:04 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-int		ft_get_next_line(int fd, char **line);
+char	*ft_get_next_line(int fd);
 void	ft_super_free(void **ptr);
 
 /*

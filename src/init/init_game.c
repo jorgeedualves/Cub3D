@@ -6,11 +6,11 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 14:01:52 by joeduard          #+#    #+#             */
-/*   Updated: 2022/09/22 22:16:17 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/09/28 15:04:31 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
 static void	initialize_mlx(t_game *game)
 {

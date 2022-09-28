@@ -6,11 +6,11 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 16:53:53 by joeduard          #+#    #+#             */
-/*   Updated: 2022/08/25 17:11:55 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/09/28 15:04:16 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
 char	**read_map(char *path_to_file)
 {
@@ -26,7 +26,7 @@ char	**read_map(char *path_to_file)
 	buffer = ft_strdup ("");
 	while (1)
 	{
-		line = get_next_line(fd); // substituir pela gnl pessoal!
+		line = ft_get_next_line(fd);
 		if (!line)
 			break ;
 		tmp = buffer;

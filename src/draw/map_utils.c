@@ -1,18 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   event_handler.c                                    :+:      :+:    :+:   */
+/*   map_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/29 12:49:31 by joeduard          #+#    #+#             */
-/*   Updated: 2022/08/29 13:08:23 by joeduard         ###   ########.fr       */
+/*   Created: 2022/08/23 14:27:17 by joeduard          #+#    #+#             */
+/*   Updated: 2022/09/28 15:04:08 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
-void	event_handler(t_game *game)
+void	map_counter(char **map, t_game *game)
 {
-    mlx_hook(game->win, X_EVENT_KEY_PRESS, 1L << 0, &key_press, game);
+	int	i;
+
+	i = 0;
+	game->win_height = 0;
+	while (map[i])
+	{
+		game->win_height++;
+		i++;
+	}
+	game->win_width = ft_strlen(*map);
+	printf("Largura: %d\nAltura: %d \n", game->win_width, game->win_height);
+}
+
+void	print_map(char **map)
+{
+	int	i;
+
+	i = 0;
+	while (map[i])
+	{
+		printf("%s\n", map[i]);
+		i++;
+	}
+	printf("\n");
 }

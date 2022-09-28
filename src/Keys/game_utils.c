@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   valid_map.c                                        :+:      :+:    :+:   */
+/*   game_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/11 17:33:53 by joeduard          #+#    #+#             */
-/*   Updated: 2022/09/06 18:30:04 by joeduard         ###   ########.fr       */
+/*   Created: 2022/08/29 12:59:33 by joeduard          #+#    #+#             */
+/*   Updated: 2022/09/28 15:04:04 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
-void	map_check_init(t_map *map)
+int key_press(int keycode, t_game *game)
 {
-	map->collectible = 0;
-	map->map_row_size = 0;
-	map->map_col_size = 0;
-	map->player = 0;
-}
-
-int	is_valid_map(char **map, char *file)
-{
-	t_map	mp;
-
-	if (!map)
-		return (0);
-	map_check_init (&mp);
-	if (has_valid_walls (map, &mp) && has_valid_chars (map)
-		&&has_minimum_chars (map, &mp) && has_valid_extension (file))
-		return (1);
-	return (0);
+    if (keycode == XK_Escape)
+        exit_game(game);
+    if (game->end_game)
+        return (0);
+    player_update(keycode, game);
+    mlx_string_put(game->mlx, game->win, game->x, game->y, 255, "X");
+    //mlx_pixel_put(game->mlx, game->win, game->x, game->y, 255);
+    map_render(game->map, game);
+    
+    return(0);
 }

@@ -6,11 +6,11 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 14:34:47 by joeduard          #+#    #+#             */
-/*   Updated: 2022/09/22 15:28:21 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/09/28 15:04:22 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
 void	init_window(t_game *game)
 {

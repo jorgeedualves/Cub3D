@@ -6,11 +6,11 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:13:19 by joeduard          #+#    #+#             */
-/*   Updated: 2022/09/13 14:29:37 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/09/28 15:04:20 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
 void	hook_player(t_game *game, int i, int j)
 {

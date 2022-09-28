@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 15:06:54 by joeduard          #+#    #+#             */
-/*   Updated: 2022/09/22 15:28:32 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/09/28 13:58:19 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,11 @@
 # include <math.h>
 # include "../libraries/mlx_linux/mlx.h"
 # include "../libraries/libft/libft.h"
-
 # define XK_MISCELLANY
 # include <X11/keysymdef.h>
 # include <X11/X.h>
+
+# include "structs.h"
 
 # define WINDOW_RIGHT	1024
 # define WINDOW_HEIGHT	510
@@ -52,44 +53,7 @@
 # define KEY_DOWN	65364
 # define KEY_RIGHT	65363
 
-typedef struct s_game
-{
-	
-	void	*mlx;
-	void	*img;
-	void	*win;
-	void	*wall;
-	void	*empty_space;
-	void	*player_right;
-	void	*player_left;
-	void	*player_up;
-	void	*player_down;
-	char	**map;
-	int		img_width;
-	int		img_height;
-	int		win_width;
-	int		win_height;
-	int		x;
-	int		y;
-	int 	moves;
-	int 	player_direction;
-	float	player_delta_x;
-	float	player_delta_y;
-	float	player_angle;
-	int 	end_game;
-	char	string;
 
-}		t_game;
-
-typedef struct s_map
-{
-	int	collectible;
-	int	map_row_size;
-	int	map_col_size;
-	int	player;
-	int	space;
-
-}	t_map;
 
 // event_handler.c
 void	event_handler(t_game *game);
@@ -100,9 +64,6 @@ int	exit_game(t_game *game);
 
 //game_utils
 int key_press(int keycode, t_game *game);
-
-//get_next_line
-char	*get_next_line(int fd);
 
 //init_game.c
 void	init_game(t_game *game);
@@ -121,7 +82,8 @@ int has_valid_extension(char *file);
 
 //map_render.c
 void map_render(char **map, t_game *game);
-void draw_image(t_game *game, void *img, int x, int y);
+//void draw_image(t_game *game, void *img, int x, int y);
+void draw_image(t_game *game, int x, int y, int tileColor);
 
 //map_utils.c
 void	map_counter(char **map, t_game *game);

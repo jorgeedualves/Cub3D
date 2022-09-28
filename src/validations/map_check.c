@@ -6,11 +6,11 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 18:06:00 by joeduard          #+#    #+#             */
-/*   Updated: 2022/08/25 14:38:50 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/09/28 15:04:25 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
 int	has_valid_walls(char **map, t_map *mp)
 {
