@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:37:50 by joeduard          #+#    #+#             */
-/*   Updated: 2022/09/29 23:34:03 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/09/30 16:34:36 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ typedef struct s_game
 {
 	t_mlx	mlx;
 	t_menu	menu;
-	t_img	img;
+	
 	void	*win;
 	void	*wall;
 	void	*empty_space;
@@ -113,6 +113,9 @@ typedef struct s_data
 //	t_params	params;
 	t_player	player;
 	t_game		game;
+	
+	t_img		img;
+	t_map		map_attributes;
 }	t_data;
 
 typedef enum e_bool

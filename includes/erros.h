@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:52:59 by joeduard          #+#    #+#             */
-/*   Updated: 2022/09/29 18:52:27 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/09/30 16:38:21 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@
 # define E_MAPINVAL "Error\nThis map is not valid!\n"
 
 // MLX
-# define E_MLXFAIL "Error\nMLX_INIT FAILURE\n"
+# define E_MLX "Error\nMLX_INIT FAILURE\n"
+# define E_MLXWIN "Error\nMLX_WIN FAILURE\n"
+# define E_MLXIMG "Error\nMLX_IMG_FAILURE\n"
+# define E_MLX_ADDR "Error\nMLX_ADDR_FAILURE\n"
 
 #endif

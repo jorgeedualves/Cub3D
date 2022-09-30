@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 22:10:14 by joeduard          #+#    #+#             */
-/*   Updated: 2022/09/05 13:27:51 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/09/30 09:41:48 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,25 @@ static void	swap_positions(char *current_pos, char *next_pos,
 	*next_pos = current_value;
 }
 
-static void	handle_0(t_game *game, int x, int y)	// lidar com zero
+static void	handle_0(t_data *data, int x, int y)	// lidar com zero
 {
 	int	i;			
 	int	j;
 
-	i = game->x;
-	j = game->y;
-	swap_positions(&game->map[i][j], &game->map[x][y], 'N', '0');
-	game->moves++;
-	game->x = x;
-	game->y = y;
+	i = data->game.x;
+	j = data->game.y;
+	swap_positions(&data->map[i][j], &data->map[x][y], 'N', '0');
+	data->game.moves++;
+	data->game.x = x;
+	data->game.y = y;
 }
 
-void	handle_situation(t_game *game, int x, int y)
+void	handle_situation(t_data *data, int x, int y)
 {
-    if (game->map[x][y] != '1')			// Se a posicao do map for diferente de '1' (wall)
+    if (data->map[x][y] != '1')			// Se a posicao do map for diferente de '1' (wall)
 	    {
-		    if (game->map[x][y] == '0')		// Se a posicao do map for igual a '0' (space)
-		    	handle_0(game, x, y);	
+		    if (data->map[x][y] == '0')		// Se a posicao do map for igual a '0' (space)
+		    	handle_0(data, x, y);	
         }
 }
 

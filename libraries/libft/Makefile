@@ -6,7 +6,7 @@
 #    By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/17 11:18:03 by joeduard          #+#    #+#              #
-#    Updated: 2021/09/23 18:31:51 by joeduard         ###   ########.fr        #
+#    Updated: 2022/09/30 18:38:48 by joeduard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ OBJ = $(subst .c,.o,$(SRC))
 
 OBJ_BONUS = $(subst .c,.o,$(SRC_BONUS))
 
-all: $(NAME)
+all: $(NAME) bonus
 
 $(NAME):
 	@gcc -Wall -Wextra -Werror -c $(SRC)

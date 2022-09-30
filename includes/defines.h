@@ -6,12 +6,12 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:41:29 by joeduard          #+#    #+#             */
-/*   Updated: 2022/09/29 17:48:31 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/09/30 17:24:02 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DEFINE_H
-# define DEFINE_H
+#ifndef DEFINES_H
+# define DEFINES_H
 
 # define XK_MISCELLANY
 
