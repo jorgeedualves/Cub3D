@@ -6,13 +6,13 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 21:46:26 by joeduard          #+#    #+#             */
-/*   Updated: 2022/09/13 14:42:12 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/09/29 23:53:14 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-void	player_update(int keycode, t_game *game)
+void	player_update(int keycode, t_data *data)
 {
     if (keycode == KEY_W || keycode == KEY_UP)
 	{
@@ -21,7 +21,7 @@ void	player_update(int keycode, t_game *game)
 		//game->y += game->player_delta_y;
 		mlx_clear_window(game->mlx, game->win);
 		handle_situation(game, game->x - 1, game->y);
-		game->player_direction = 'u';
+		game.player_direction = 'u';
 	}
 	if (keycode == KEY_S || keycode == KEY_DOWN)
 	{

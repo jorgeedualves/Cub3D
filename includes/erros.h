@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_window.c                                      :+:      :+:    :+:   */
+/*   erros.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/23 14:34:47 by joeduard          #+#    #+#             */
-/*   Updated: 2022/09/29 18:43:09 by joeduard         ###   ########.fr       */
+/*   Created: 2022/09/29 11:52:59 by joeduard          #+#    #+#             */
+/*   Updated: 2022/09/29 18:52:27 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#ifndef ERRO_H
+#define ERRO_H
 
-void	init_window(t_data *data)
-{
-	data->mlx.win_ptr = mlx_new_window (data->mlx.mlx_ptr, WIN_WIDTH , WIN_HEIGHT , "CUB3D");
-}
+// Criar MACRO DE ERROS
+
+//Validations
+# define E_RESINVAL "Error\nResolution below minimum of 1024x768\n"
+# define E_NOMAP "error\nThe map was not specified!\n"
+# define E_MANYARG "error\nThere are many arguments\n"
+# define E_MAPINVAL "Error\nThis map is not valid!\n"
+
+// MLX
+# define E_MLXFAIL "Error\nMLX_INIT FAILURE\n"
+
+#endif

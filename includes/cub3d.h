@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 15:06:54 by joeduard          #+#    #+#             */
-/*   Updated: 2022/09/28 13:58:19 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/09/29 23:53:51 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,41 +19,14 @@
 # include <stdlib.h>
 # include <string.h>
 # include <math.h>
-# include "../libraries/mlx_linux/mlx.h"
-# include "../libraries/libft/libft.h"
-# define XK_MISCELLANY
 # include <X11/keysymdef.h>
 # include <X11/X.h>
-
+# include "../libraries/mlx_linux/mlx.h"
+# include "../libraries/libft/libft.h"
 # include "structs.h"
-
-# define WINDOW_RIGHT	1024
-# define WINDOW_HEIGHT	510
-
-# define FILE_WALL	"textures/1.xpm"
-# define FILE_SPACE	"textures/0.xpm"
-# define FILE_PLAYER_U	"textures/P_U.xpm"
-# define FILE_PLAYER_D	"textures/P_D.xpm"
-# define FILE_PLAYER_L	"textures/P_L.xpm"
-# define FILE_PLAYER_R	"textures/P_R.xpm"
-
-# define TILE_SIZE	32
-# define SPRITE_SIZE	32
-# define PI 3.1415926535
-
-# define X_EVENT_KEY_PRESS	2
-# define X_EVENT_DESTROY_NOTIFY	17
-# define KEY_W	119
-# define KEY_A	97
-# define KEY_S	115
-# define KEY_D	100
-
-# define KEY_UP		65362
-# define KEY_LEFT	65361
-# define KEY_DOWN	65364
-# define KEY_RIGHT	65363
-
-
+# include "defines.h"
+# include "erros.h"
+# include "validation.h"
 
 // event_handler.c
 void	event_handler(t_game *game);
@@ -63,10 +36,10 @@ void	free_map(char **map);
 int	exit_game(t_game *game);
 
 //game_utils
-int key_press(int keycode, t_game *game);
+int key_press(int keycode, t_data *data);
 
-//init_game.c
-void	init_game(t_game *game);
+//init_data.c
+void	init_data(t_data *data);
 
 //init_image.c
 void	initialize_image(t_game *game);
@@ -93,7 +66,7 @@ void	print_map(char **map);
 void	handle_situation(t_game *game, int x, int y);
 
 //player_update.c
-void	player_update(int keycode, t_game *game);
+void	player_update(int keycode, t_data *data);
 
 //read_map.c
 char **read_map(char *path_to_file);

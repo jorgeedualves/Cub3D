@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_window.c                                      :+:      :+:    :+:   */
+/*   validation.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/23 14:34:47 by joeduard          #+#    #+#             */
-/*   Updated: 2022/09/29 18:43:09 by joeduard         ###   ########.fr       */
+/*   Created: 2022/09/29 12:16:52 by joeduard          #+#    #+#             */
+/*   Updated: 2022/09/29 15:32:29 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#ifndef VALIDATION_H
+#define VALIDATION_H
 
-void	init_window(t_data *data)
-{
-	data->mlx.win_ptr = mlx_new_window (data->mlx.mlx_ptr, WIN_WIDTH , WIN_HEIGHT , "CUB3D");
-}
+t_bool	validation(t_data *data, int argc, char **argv);
+
+#endif
