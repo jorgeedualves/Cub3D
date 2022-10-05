@@ -6,11 +6,11 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 15:05:26 by joeduard          #+#    #+#             */
-/*   Updated: 2022/09/29 18:52:40 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/10/04 12:07:00 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
 int	main(int argc, char **argv)
 {

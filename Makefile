@@ -6,7 +6,7 @@
 #    By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/24 15:38:22 by joeduard          #+#    #+#              #
-#    Updated: 2022/09/30 18:34:12 by joeduard         ###   ########.fr        #
+#    Updated: 2022/10/04 16:21:55 by joeduard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,65 +83,114 @@
 
 # .PHONY:	all, clean, fclean, bonus, re
 
+
+#TESTE 2 -------------------------------------------------------
+# NAME			=	cub3d
+
+# CC				=	clang
+# CFLAGS			=	-Wall -Werror -Wextra -g -fsanitize=address
+
+
+# LIBFT_DIR		=	./libraries/libft
+# LIBFT			=	$(LIBFT_DIR)/libft.a
+# LIBFLAGS		=	-L $(LIBFT_DIR) -lft -lreadline
+
+# MLX_DIR			=	./libraries/mlx_linux
+# MLX				=	$(MLX_DIR)/libmlx.a
+# MLXFLAGS		=	-L $(MLX_DIR) -lbsd -lX11 -lXext
+
+# INC				=	-I ./includes -I ./$(LIBFT_DIR) -I ./$(MLX_DIR)
+
+# MAP_DIR			=	
+
+# SRC_DIR			=	./src
+
+# RM				=	rm -rf
+
+# core			=	cub3d.c, exit_game.c, move_player.c, player_update.c
+# draw			=	map_render.c, map_utils.c
+# init			=	init_data.c, init_image.c, init_window.c
+# keys			=	event_handler.c, game_utils.c, kook_player.c
+# validation		=	map_check.c, read_map.c, valid_map.c, validation.c
+
+# FILES			=	$(addprefix core/, $(core)) \
+# 					$(addprefix draw/, $(draw)) \
+# 					$(addprefix int/, $(int)) \
+# 					$(addprefix keys/, $(keys)) \
+# 					$(addprefix validations/, $(validations)) \
+
+# SRC				=	$(addprefix $(SRC_DIR)/, $(FILES))
+
+# OBJS_DIR		=	./obj
+# OBJ				=	$(subst $(SRCS_DIR),$(OBJS_DIR),$(SRC:.c=%.o))
+
+# all: $(NAME)
+
+# $(NAME): $(OBJS)
+# 				@echo -e '\e[44;37;01m Compiling LIBFT [ .. ] \e[m'
+# 				make -C $(LIBFT_DIR)
+# 				@echo -e '\e[42;37;01m LIBFT is ready! [ OK ] \e[m'
+# 				@echo -e '\e[44;37;01m Compiling MLX [ .. ] \e[m'
+# 				make -C $(MLX_DIR) $(MLXFLAGS) -I $(INC) $(MLX)
+# 				@-$(CC) -c $(CFLAGS) $(OBJS) $(LIBFLAGS) $(LIBFT)  -o $@
+# 				@echo -e '\e[42;37;01m MLX is ready! [ OK ] \e[m'
+
+# $(OBJS_DIR)/%.o: $(SRC_DIR)/%.c
+# 				@mkdir -p obj/core
+# 				@mkdir -p obj/draw
+# 				@mkdir -p obj/init
+# 				@mkdir -p obj/keys
+# 				@mkdir -p obj/validations
+# 				$(CC) $(CFLAGS) $(INC) -c $< -o $@
+
+# clean:
+# 				make -C $(LIBFT_DIR) fclean
+# 				make -C $(MLX_DIR) fclean
+# 				@echo -e '\e[41;37;01m Executable deleted. \e[m'
+
+# fclean:			clean
+# 				$(RM) obj
+# 				$(RM) $(NAME)
+
+# re:				fclean all
+
+# install:
+# 				@sudo apt-get install libxext-dev libbsd-dev
+
+# .PHONY:			all clean fclean re
+
+
+#----------------------------------------------------------------
+
+# TESTE 3
+
 NAME			=	cub3d
 
-CC				=	clang
+CC				= 	clang
 
-LIBFT_DIR		=	./libraries/libft
-LIBFT			=	$(LIBFT_DIR)/libft.a
-LIBFLAGS		=	-L $(LIBFT_DIR)-lbsd -lX11 -lXext
+LIB				=	./libraries/libft/libft.a
+MLX				=	./libraries/mlx_linux/libmlx.a
 
-MLX_DIR			=	./libraries/mlx_linux
-MLX				=	$(MLX_DIR)/libmlx.a
+FLAGS			=	-Wall -Werror -Wextra -g -fsanitize=address
 
-CFLAGS			=	-Wall -Werror -Wextra -g -fsanitize=address
+LIBFLAGS		=	-lbsd -lX11 -lXext
 
-INC				=	-I ./includes -I ./libft -I ./mlx_linux
+INC				=	-I ./includes -I ./$(LIB) -I ./$(MLX)
 
 SRC_DIR			=	./src
 
-RM				=	rm -fr
+RM				=	rm -rf
 
-FILES			=	$(addprefix draw/, $(draw)) \
+core			=	cub3d.c, exit_game.c, move_player.c, player_update.c
+draw			=	map_render.c, map_utils.c
+init			=	init_data.c, init_image.c, init_window.c
+keys			=	event_handler.c, game_utils.c, kook_player.c
+validation		=	map_check.c, read_map.c, valid_map.c, validation.c
+
+FILES			=	$(addprefix core/, $(core)) \
+					$(addprefix draw/, $(draw)) \
 					$(addprefix int/, $(int)) \
 					$(addprefix keys/, $(keys)) \
-					$(addprefix validations/, $(validations)) \
+					$(addprefix validations/, $(validations))
 
-SRC				=	$(addprefix src/, $(FILES))
-
-OBJS_DIR		=	./obj
-OBJ				=	$(subst $(SRCS_DIR),$(OBJS_DIR),$(SRC:.c=.o))
-
-all: $(NAME)
-
-$(NAME): $(OBJS)
-				@echo -e '\e[44;37;01m Compiling LIBFT [ .. ] \e[m'
-				make -C $(LIBFT_DIR)
-				@echo -e '\e[42;37;01m LIBFT is ready! [ OK ] \e[m'
-				@echo -e '\e[44;37;01m Compiling MLX [ .. ] \e[m'
-				make -C $(MLX_DIR)
-				@-$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MLX) $(LIBFLAGS) -o $@
-				@echo -e '\e[42;37;01m MLX is ready! [ OK ] \e[m'
-
-$(OBJS_DIR)/%.o: $(SRC_DIR)/%.c
-				@mkdir -p obj
-				@mkdir -p obj/draw
-				@mkdir -p obj/init
-				@mkdir -p obj/validations
-				$(CC) $(CFLAGS) $(INC) -c $< -o $@
-
-clean:
-				make -C $(LIBFT_DIR) fclean
-				make -C $(MLX_DIR) fclean
-				@echo -e '\e[41;37;01m Executable deleted. \e[m'
-
-fclean:			clean
-				$(RM) obj
-				$(RM) $(NAME)
-
-re:				fclean all
-
-install:
-				@sudo apt-get install libxext-dev libbsd-dev
-
-.PHONY:			all clean fclean re
+SRC				=	$(addprefix $(SRC_DIR)/, $(FILES))

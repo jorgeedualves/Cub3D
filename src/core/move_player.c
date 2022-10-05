@@ -6,11 +6,11 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 22:10:14 by joeduard          #+#    #+#             */
-/*   Updated: 2022/09/30 09:41:48 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/10/04 12:07:03 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
 static void	swap_positions(char *current_pos, char *next_pos,
 							char current_value, char next_value)

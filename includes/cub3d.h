@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 15:06:54 by joeduard          #+#    #+#             */
-/*   Updated: 2022/09/30 19:00:38 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/10/04 22:14:57 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,6 @@ int has_valid_extension(char *file);
 //map_render.c
 void map_render(char **map, t_data *data);
 //void draw_image(t_game *game, void *img, int x, int y);
-
-
 
 
 //move_player.c

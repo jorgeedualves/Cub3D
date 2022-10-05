@@ -6,11 +6,11 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 17:01:49 by joeduard          #+#    #+#             */
-/*   Updated: 2022/08/29 21:52:00 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/10/04 12:06:09 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
 void	free_map(char **map)
 {
@@ -29,14 +29,14 @@ void	free_map(char **map)
 
 static void	free_game(t_game *game)
 {
-	mlx_destroy_image(game->mlx, game->empty_space);
-	mlx_destroy_image(game->mlx, game->wall);
-	mlx_destroy_image(game->mlx, game->player_right);
-	mlx_destroy_image(game->mlx, game->player_left);
-	mlx_destroy_image(game->mlx, game->player_up);
-	mlx_destroy_image(game->mlx, game->player_down);
-	mlx_destroy_window(game->mlx, game->win);
-	mlx_destroy_display(game->mlx);
+	// mlx_destroy_image(game->mlx, game->empty_space);
+	// mlx_destroy_image(game->mlx, game->wall);
+	// mlx_destroy_image(game->mlx, game->player_right);
+	// mlx_destroy_image(game->mlx, game->player_left);
+	// mlx_destroy_image(game->mlx, game->player_up);
+	// mlx_destroy_image(game->mlx, game->player_down);
+	// mlx_destroy_window(game->mlx, game->win);
+	// mlx_destroy_display(game->mlx);
 	ft_super_free(&game->mlx);
 }
 
