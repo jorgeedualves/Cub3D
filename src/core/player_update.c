@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 21:46:26 by joeduard          #+#    #+#             */
-/*   Updated: 2022/09/30 17:24:14 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/10/21 18:46:12 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	player_update(int keycode, t_data *data)
 		//game->y += game->player_delta_y;
 		mlx_clear_window(data->mlx.mlx_ptr, data->mlx.win_ptr);
 		handle_situation(data, data->player.x - 1, data->player.y);
-		data->player.init_pos = 'u';
+		// data->player.init_pos = 'u';
 	}
 	if (keycode == KEY_S || keycode == KEY_DOWN)
 	{
@@ -30,7 +30,7 @@ void	player_update(int keycode, t_data *data)
 	//	game->y -= game->player_delta_y;
 		mlx_clear_window(data->mlx.mlx_ptr, data->mlx.win_ptr);
 		handle_situation(data, data->game.x + 1, data->game.y); 
-		data->game.player_down = 'd';
+		// data->game.player_down = 'd';
 	}
 	if (keycode == KEY_D || keycode == KEY_RIGHT)
 	{
@@ -42,7 +42,7 @@ void	player_update(int keycode, t_data *data)
 		// game->player_delta_y = sin(game->player_angle) * 5;
 		mlx_clear_window(data->mlx.mlx_ptr, data->mlx.win_ptr);
 		// handle_angle(game, game->x, game->y);
-	 	data->game.player_right = 'r';
+	 	// data->game.player_right = 'r';
 	}
 	if (keycode == KEY_A || keycode == KEY_LEFT)
 	{
@@ -54,6 +54,6 @@ void	player_update(int keycode, t_data *data)
 		// game->player_delta_y = sin(game->player_delta_y) * 5;
 		mlx_clear_window(data->mlx.mlx_ptr, data->mlx.win_ptr);
 		// handle_angle(game, game->x, game->y);
-	 	data->game.player_right = 'l';
+	 	// data->game.player_right = 'l';
 	}
 }

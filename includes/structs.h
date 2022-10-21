@@ -6,19 +6,12 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:37:50 by joeduard          #+#    #+#             */
-/*   Updated: 2022/09/30 16:34:36 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/10/21 18:43:39 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # ifndef STRUCTS_H
 # define STRUCTS_H
-
-typedef struct s_mlx
-{
-	void		*mlx_ptr;
-	void		*win_ptr;
-	t_img		img;
-}				t_mlx;
 
 typedef struct s_img
 {
@@ -28,6 +21,13 @@ typedef struct s_img
 	int		line_len;
 	int		endian;
 }	t_img;
+
+typedef struct s_mlx
+{
+	void		*mlx_ptr;
+	void		*win_ptr;
+	t_img		img;
+}	t_mlx;
 
 /*typedef struct s_params
 {
