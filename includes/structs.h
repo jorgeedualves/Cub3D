@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:37:50 by joeduard          #+#    #+#             */
-/*   Updated: 2022/10/21 18:43:39 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/10/24 17:56:34 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 
 typedef struct s_img
 {
+	int		*data;
 	void	*mlx_img;
-	char	*addr;
+	int		*addr;
 	int		bits_per_pixel;
 	int		line_len;
 	int		endian;
@@ -76,8 +77,8 @@ typedef struct s_game
 
 typedef struct s_player
 {
-	float	x;
-	float	y;
+	float	pos_x;
+	float	pos_y;
 	float	width;
 	float	height;
 	int		turn_dir;
@@ -94,9 +95,10 @@ typedef struct s_player
 }	t_player;
 typedef struct s_map
 {
+	char	**file;
 	int	collectible;
-	int	map_row_size;
-	int	map_col_size;
+	int	row;
+	int	col;
 	int	player;
 	int	space;
 
@@ -106,16 +108,16 @@ typedef struct s_data
 {
 	int			state;
 //	t_bool		game_running;
-	char		**map;
+//	t_map		map;
 	char		**devmap;
 	t_mlx		mlx;
 	t_menu		menu;
 //	t_params	params;
 	t_player	player;
 	t_game		game;
-	
+	t_map		map;
 	t_img		img;
-	t_map		map_attributes;
+//	t_map		map_attributes;
 }	t_data;
 
 typedef enum e_bool

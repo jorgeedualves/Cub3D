@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 14:01:52 by joeduard          #+#    #+#             */
-/*   Updated: 2022/09/30 16:26:42 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/10/24 18:03:00 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,17 @@ static void	initialize_mlx(t_data *data)
 	if (data->mlx.mlx_ptr == NULL)
 	{
 		print_error(E_MLX);
-		exit(EXIT_FAILURE);
+		free(data->mlx.mlx_ptr);
 	}
 	printf("INICIALIZOU MLX\n"); // tirar este print depois
-	init_window(&data);
+	init_window(data);
 }
 
 static void	initialize_data(t_data *data)
 {
-	map_counter(data->map, *data);	
+	data->player.pos_x = 0;
+	data->player.pos_y = 0;
+	map_counter(data);	
 
 }
 

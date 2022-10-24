@@ -6,68 +6,100 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 17:35:41 by joeduard          #+#    #+#             */
-/*   Updated: 2022/09/29 23:30:57 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/10/24 17:37:59 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
- static void	my_mlx_pixel_put(t_img img, int x, int y, int color)
+//Draw the line by DDA algorithm
+void	draw_line(t_data *data, double x1, double y1, double x2, double y2)
 {
-    char	*dst;
+	double	deltaX;
+	double	deltaY;
+	double	step;
 
-	dst = img.addr + (y * img.line_len + x * (img.bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
-
+	deltaX = x2 - x1;
+	deltaY = y2 - y1;
+	step = (fabs(deltaX) > fabs(deltaY)) ? fabs(deltaX) : fabs(deltaY);
+	deltaX /= step;
+	deltaY /= step;
+	while (fabs(x2 - x1) > 0.01 || fabs(y2 - y1) > 0.01)
+	{
+		data->img.data[((int)floor(y1) * data->map.col * TILE_SIZE + (int)floor(x1))] = 0x4B0082;
+		x1 += deltaX;
+		y1 += deltaY;
+	}
 }
 
-void draw_image(t_data *data, int x, int y, int tileColor)
+void 	draw_lines(t_data *data)
 {
-    t_img   img;
-    int offset;
+	int		i;
+	int		j;
 
-    img.mlx_img = mlx_new_image(data->mlx.mlx_ptr, WIN_WIDTH, WIN_HEIGHT);
-    img.addr = mlx_get_data_addr(data->mlx.mlx_ptr, &img.bits_per_pixel, &img.line_len, &img.endian);
-    offset = (y * img.line_len + x * (img.bits_per_pixel));
-    my_mlx_pixel_put(img, x, y, tileColor);
+	i = 0;
+	while (i < data->map.col)
+	{
+		draw_line(data, i * TILE_SIZE, 0, i * TILE_SIZE, data->map.row * TILE_SIZE);
+		i++;
+	}
+	draw_line(data, data->map.col * TILE_SIZE - 1, 0, data->map.col * TILE_SIZE - 1, data->map.row * TILE_SIZE);
+	j = 0;
+	while (j < data->map.row)
+	{
+		draw_line(data, 0, j * TILE_SIZE, data->map.col * TILE_SIZE, j * TILE_SIZE);
+		j++;
+	}
+	draw_line(data, 0, data->map.row * TILE_SIZE - 1, data->map.col * TILE_SIZE, data->map.row * TILE_SIZE - 1);
 }
 
-void map_render(char **map, t_data *data)
+void	draw_rectangle(t_data *data, int x, int y, int color)
 {
+	int i;
+	int j;
 
-    int i;
-    int j;
-    int tileColor;
-    int tile_x;
-  //  int tile_y;
+	x *= TILE_SIZE;
+	y *= TILE_SIZE;
+	i = 0;
+	while (i < TILE_SIZE)
+	{
+		j = 0;
+		while (j < TILE_SIZE)
+		{
+			data->img.data[(y + i) * data->map.col * TILE_SIZE + x + j] = color;
+			j++;
+		}
+		i++;
+	}
+}
 
-    i = 0;
-    while (map[i])
-    {
-        j = 0;
-        while (map[i][j])
-        {
-            tile_x = j * TILE_SIZE;
-            tile_x = i * TILE_SIZE;
-            if (map[i][j] == '1')
-                tileColor = 0x00FF0000;
-            else
-                tileColor = 0x009999CC;
-            // CHAMAR AS 3 FUNÇÕES 
-            draw_image(data, i, j, tileColor);
-            //  draw_image(game, game->wall, i, j); // trocar para get color
-            //mlx_string_put(game->mlx, game->win, game->x, game->y, 250, "1");
-          //  if (map[i][j] == '0')
-               // draw_image(game, game->empty_space, i, j);
-            // if (map[i][j] == 'N')
-            // {
-            //     hook_player(game, i, j);
-            //     mlx_clear_window(game->mlx, game->win);
-            // }
-               
-            j++;
-        }
-        i++;
-        
-    }
+void	draw_rectangles(t_data *data)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	while (i < data->map.row)
+	{
+		j = 0;
+		while (j < data->map.col)
+		{
+			if (data->map.file[i][j] == '1')
+				draw_rectangle(data, j, i, PURPLE);
+			if (data->map.file[i][j] == '0')
+				draw_rectangle(data, j, i, BLUE);
+			if (data->map.file[i][j] == 'N')
+				draw_rectangle(data, j, i, YELLOW);
+			j++;
+		}
+		i++;
+	}
+}
+
+int		map_render(t_data *data)
+{
+	draw_rectangles(data);
+	draw_lines(data);
+	mlx_put_image_to_window(data->mlx.mlx_ptr, data->mlx.win_ptr, data->img.data, 0, 0);
+	return (0);
 }

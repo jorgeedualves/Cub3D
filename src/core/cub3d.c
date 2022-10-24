@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 15:05:26 by joeduard          #+#    #+#             */
-/*   Updated: 2022/10/04 12:07:00 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/10/24 14:39:00 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	main(int argc, char **argv)
 	if(validation(&data, argc, argv) == false)
 		return(EXIT_FAILURE);
 	init_data(&data);
+	mlx_loop_hook(data.mlx.mlx_ptr, &map_render, &data);
 	event_handler(&data);
 	mlx_loop(&data.mlx);
 	return (0);

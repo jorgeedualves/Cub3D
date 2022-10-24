@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 17:33:53 by joeduard          #+#    #+#             */
-/*   Updated: 2022/09/28 15:05:47 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/10/24 17:18:11 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	map_check_init(t_map *map)
 {
 	map->collectible = 0;
-	map->map_row_size = 0;
-	map->map_col_size = 0;
+	map->row = 0;
+	map->col = 0;
 	map->player = 0;
 }
 

@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:41:29 by joeduard          #+#    #+#             */
-/*   Updated: 2022/09/30 17:24:02 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/10/24 17:41:48 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 
 # define SPRITE_SIZE	32
 
+# define X_EVENT_KEY_EXIT 17
 # define X_EVENT_KEY_PRESS	2
 # define X_EVENT_DESTROY_NOTIFY	17
 # define KEY_W	119
@@ -42,6 +43,11 @@
 # define KEY_LEFT	65361
 # define KEY_DOWN	65364
 # define KEY_RIGHT	65363
+
+# define PURPLE 0x4B0082
+# define BLUE   0xF5FFA
+# define YELLOW 0x8FCE00
+
 
 # define FILE_WALL	"textures/1.xpm"
 # define FILE_SPACE	"textures/0.xpm"

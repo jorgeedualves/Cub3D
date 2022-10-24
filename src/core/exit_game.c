@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 17:01:49 by joeduard          #+#    #+#             */
-/*   Updated: 2022/10/21 18:27:13 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/10/24 13:15:14 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ void	free_map(char **map)
 	// ft_super_free(&game->mlx);
 //}
 
-int exit_game(t_game *game)
+int exit_game(t_data *data)
 {
-	free_map(game->map);
+	free_map(data->game.map);
 //	free_game(game);
 	exit(0);
 	return (0);

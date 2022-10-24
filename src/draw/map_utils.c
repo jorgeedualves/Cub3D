@@ -6,25 +6,43 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 14:27:17 by joeduard          #+#    #+#             */
-/*   Updated: 2022/09/28 15:04:08 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/10/24 18:02:40 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-void	map_counter(char **map, t_game *game)
+void	map_counter(t_data *data)
 {
 	int	i;
 
 	i = 0;
-	game->win_height = 0;
-	while (map[i])
+	
+	data->map.row = 0;
+	data->map.col = 0;
+	while (data->map.file[i])
 	{
-		game->win_height++;
+		data->map.row++;
 		i++;
 	}
-	game->win_width = ft_strlen(*map);
-	printf("Largura: %d\nAltura: %d \n", game->win_width, game->win_height);
+	data->map.col = ft_strlen(*data->map.file);
+	printf("Largura: %d\nAltura: %d \n", data->map.row, data->map.col);
+	i = 0;
+	int j;
+	while (i < data->map.row)
+	{
+		j = 0;
+		while (j < data->map.col)
+		{
+			if (data->map.file[i][j] == 'N')
+			{
+				data->player.pos_x = i;
+				data->player.pos_y = j;
+			}
+			j++;
+		}
+		i++;
+	}
 }
 
 void	print_map(char **map)
