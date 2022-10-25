@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 17:35:41 by joeduard          #+#    #+#             */
-/*   Updated: 2022/10/24 17:37:59 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/10/24 21:16:13 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	draw_line(t_data *data, double x1, double y1, double x2, double y2)
 	deltaY /= step;
 	while (fabs(x2 - x1) > 0.01 || fabs(y2 - y1) > 0.01)
 	{
-		data->img.data[((int)floor(y1) * data->map.col * TILE_SIZE + (int)floor(x1))] = 0x4B0082;
+		data->img.data[((int)floor(y1) * data->map.col * TILE_SIZE + (int)floor(x1))] = PURPLE;
 		x1 += deltaX;
 		y1 += deltaY;
 	}
