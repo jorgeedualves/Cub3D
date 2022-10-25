@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 17:01:49 by joeduard          #+#    #+#             */
-/*   Updated: 2022/10/24 13:15:14 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/10/25 12:21:05 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,24 @@ void	free_map(char **map)
 	ft_super_free((void *)&map);
 }
 
-//static void	free_game(t_game *game)
-//{
+static void	free_game(t_data *data)
+{
 	// mlx_destroy_image(game->mlx, game->empty_space);
 	// mlx_destroy_image(game->mlx, game->wall);
 	// mlx_destroy_image(game->mlx, game->player_right);
 	// mlx_destroy_image(game->mlx, game->player_left);
 	// mlx_destroy_image(game->mlx, game->player_up);
 	// mlx_destroy_image(game->mlx, game->player_down);
-	// mlx_destroy_window(game->mlx, game->win);
-	// mlx_destroy_display(game->mlx);
-	// ft_super_free(&game->mlx);
-//}
+	mlx_destroy_window(data->mlx.mlx_ptr, data->mlx.win_ptr);
+	mlx_destroy_image(data->mlx.mlx_ptr,data->img.mlx_img);
+	mlx_destroy_display(data->mlx.mlx_ptr);
+	ft_super_free(&data->mlx.mlx_ptr);
+}
 
 int exit_game(t_data *data)
 {
-	free_map(data->game.map);
-//	free_game(game);
+	free_map(data->map.file);
+	free_game(data);
 	exit(0);
 	return (0);
 }

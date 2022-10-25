@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:52:59 by joeduard          #+#    #+#             */
-/*   Updated: 2022/09/30 16:38:21 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/10/25 12:35:28 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 //Validations
 # define E_RESINVAL "Error\nResolution below minimum of 1024x768\n"
-# define E_NOMAP "error\nThe map was not specified!\n"
-# define E_MANYARG "error\nThere are many arguments\n"
+# define E_NOMAP "Error\nThe map was not specified!\n"
+# define E_MANYARG "Error\nThere are many arguments\n"
 # define E_MAPINVAL "Error\nThis map is not valid!\n"
 
 // MLX

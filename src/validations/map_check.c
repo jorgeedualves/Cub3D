@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 18:06:00 by joeduard          #+#    #+#             */
-/*   Updated: 2022/10/24 17:18:11 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/10/25 12:58:19 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,8 @@ int	has_valid_extension(char *file)
 	if (!file)
 		return (0);
 	ext = ft_strrchr(file, '.');
+	if (ext == NULL)
+		return(0);
 	if (ft_strncmp(ext, ".cub", 5))
 		return (0);
 	return (1);

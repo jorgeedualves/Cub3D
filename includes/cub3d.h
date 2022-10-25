@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 15:06:54 by joeduard          #+#    #+#             */
-/*   Updated: 2022/10/24 18:18:12 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/10/25 11:49:34 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@
     // exit_game.c
     void	free_map(char **map);
     int	    exit_game(t_data *data);
+    
 
     //move_player.c
     void	handle_situation(t_data *data, int x, int y);

@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 14:34:47 by joeduard          #+#    #+#             */
-/*   Updated: 2022/10/24 17:08:49 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/10/25 12:14:32 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	init_window(t_data *data)
 	if (data->mlx.win_ptr == NULL)
 	{
 		print_error(E_MLXWIN);
-		free(data->mlx.mlx_ptr);
-		free(data->mlx.win_ptr);
+		exit_game(data);
 	}
 }

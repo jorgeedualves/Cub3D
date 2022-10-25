@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 16:26:37 by joeduard          #+#    #+#             */
-/*   Updated: 2022/10/24 21:03:15 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/10/25 12:07:38 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ t_bool	validation(t_data *data, int argc, char **argv)
 	//	print_map(data->map.file);
 	if (!is_valid_map(data->map.file, argv[1]))
 	{
-		return (print_error(E_MAPINVAL));
 		free_map(data->map.file);
+		return (print_error(E_MAPINVAL));
 	}
 	return(true);
 }
