@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 17:35:41 by joeduard          #+#    #+#             */
-/*   Updated: 2022/10/24 21:16:13 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/10/25 18:24:56 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,10 @@ int		map_render(t_data *data)
 	draw_rectangles(data);
 	draw_lines(data);
 	mlx_put_image_to_window(data->mlx.mlx_ptr, data->mlx.win_ptr, data->img.data, 0, 0);
+	if(&mlx_put_image_to_window == NULL)
+	{
+		print_error(E_MLXIMG);
+		exit_game(data);
+	}
 	return (0);
 }

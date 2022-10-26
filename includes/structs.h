@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:37:50 by joeduard          #+#    #+#             */
-/*   Updated: 2022/10/25 12:23:23 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/10/25 18:16:28 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,18 +106,12 @@ typedef struct s_map
 
 typedef struct s_data
 {
-//	int			state;
-//	t_bool		game_running;
-//	t_map		map;
-//	char		**devmap;
-	t_mlx		mlx;
-//	t_menu		menu;
-//	t_params	params;
-	t_player	player;
-	t_game		game;
 	t_map		map;
+	t_mlx		mlx;
 	t_img		img;
-//	t_map		map_attributes;
+	t_game		game;
+	t_player	player;
+
 }	t_data;
 
 typedef enum e_bool
