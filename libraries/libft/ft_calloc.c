@@ -5,22 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/28 23:56:38 by joeduard          #+#    #+#             */
-/*   Updated: 2021/10/14 16:51:31 by joeduard         ###   ########.fr       */
+/*   Created: 2022/05/27 19:49:01 by joeduard          #+#    #+#             */
+/*   Updated: 2022/05/27 19:49:07 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	*ft_calloc(size_t count, size_t size)
 {
-	void	*dst;
-	size_t	total_size;
+	void	*memory;
+	size_t	i;
+	size_t	len;
 
-	total_size = nmemb * size;
-	dst = malloc(total_size);
-	if (dst == 0)
+	i = 0;
+	len = count * size;
+	memory = malloc(len);
+	if (memory == 0)
 		return (0);
-	ft_memset (dst, 0, total_size);
-	return (dst);
+	while (len > 0)
+	{
+		((char *)memory)[i] = 0;
+		i++;
+		len--;
+	}
+	return (memory);
 }

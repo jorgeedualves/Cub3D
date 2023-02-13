@@ -5,86 +5,86 @@
 #                                                     +:+ +:+         +:+      #
 #    By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/08/24 15:38:22 by joeduard          #+#    #+#              #
-#    Updated: 2022/10/24 16:12:54 by joeduard         ###   ########.fr        #
+#    Created: 2022/08/11 20:05:50 by azamario          #+#    #+#              #
+#    Updated: 2022/11/28 10:56:04 by joeduard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			=	cub3d
+NAME		=	cub3d
 
-CC				=	clang
-CFLAGS			=	-Wall -Werror -Wextra -g -fsanitize=address
+CC			=	gcc
 
+XPM_DIR		=	textures
 
-LIBFT_DIR		=	./libraries/libft
-LIBFT			=	$(LIBFT_DIR)/libft.a
-LIBFLAGS		=	-L $(LIBFT_DIR) -lft
+IMG_DIR		=	assets/img
 
-MLX_DIR			=	./libraries/mlx_linux
-MLX				=	$(MLX_DIR)/libmlx.a
-MLXFLAGS		=	-L $(MLX_DIR) -lmlx_Linux -lbsd -lX11 -lXext
+LIB			=	./libraries/libft/libft.a
+MLX			=	./libraries/mlx-linux/libmlx_Linux.a
 
-INC				=	-I ./includes -I ./$(LIBFT_DIR) -I ./$(MLX_DIR)
+FLAGS		=	-Wall -Werror -Wextra -g -fsanitize=address 
+LINKS		=	-lbsd -lX11 -lXext -lm -ldl
+INC			=	-I ./includes -I ./libft -I ./mlx-linux
 
-SRC_DIR			=	./src/
+SRC_DIR		=	./src
+OBJ_DIR		=	./obj
 
-RM				=	rm -rf
+FILES		=	cub3d.c
+FILES		+=	exit_game.c init_game.c init_image.c init_window.c    
+FILES		+=	read_file.c validate_map_info.c event_handler.c render_game.c
+FILES		+=	map_utils.c draw_minimap.c draw_player.c cast_all_rays.c
+FILES		+=	cast_ray_horizontal.c cast_ray_vertical.c color.c cast_ray_find_distance.c validation.c
+FILES		+=	validate_colors.c is_map_playable.c is_map_playable_utils.c is_map_playable_utils2.c
 
-core			=	cub3d.c exit_game.c move_player.c player_update.c
-draw			=	map_render.c map_utils.c
-init			=	init_data.c init_image.c init_window.c
-keys			=	event_handler.c game_utils.c hook_player.c
-validations		=	map_check.c read_map.c valid_map.c validation.c
+SRC			=	$(addprefix $(SRC_DIR)/, $(FILES))
+OBJ			=	$(addprefix $(OBJ_DIR)/, $(FILES:.c=.o))
 
-FILES			=	$(addprefix core/, $(core)) \
-					$(addprefix draw/, $(draw)) \
-					$(addprefix init/, $(init)) \
-					$(addprefix keys/, $(keys)) \
-					$(addprefix validations/, $(validations)) \
+all:		$(NAME)
 
-SRC				=	$(FILES)
+$(NAME):	$(LIB) $(OBJ) $(MLX)
+	@$(CC) $(FLAGS) $(OBJ) $(LIB) $(MLX) $(LINKS) $(INC) -o $(NAME)
+	@echo "Game created!"
 
-OBJS_DIR		=	./obj/
-OBJS			=	$(addprefix $(OBJS_DIR),$(FILES:%.c=%.o))
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	@mkdir -p obj
+	$(CC) $(FLAGS) $(INC) -c $< -o $@
 
-all: $(NAME)
+$(LIB):
+	make -C libraries/libft
 
-$(NAME): $(OBJS)
-				@echo -e '\e[44;37;01m Compiling LIBFT [ .. ] \e[m'
-				make -C $(LIBFT_DIR)
-				@echo -e '\e[42;37;01m LIBFT is ready! [ OK ] \e[m'
-				@echo -e '\e[44;37;01m Compiling MLX [ .. ] \e[m'
-				make -C $(MLX_DIR)
-				@$(CC) $(CFLAGS) $(INC) $(OBJS) $(LIBFLAGS) $(LIBFT) $(MLXFLAGS) -o $@
-				@echo -e '\e[42;37;01m MLX is ready! [ OK ] \e[m'
-
-$(OBJS_DIR)%.o: $(SRC_DIR)%.c
-				@mkdir -p obj/core
-				@mkdir -p obj/draw
-				@mkdir -p obj/init
-				@mkdir -p obj/keys
-				@mkdir -p obj/validations
-				$(CC) $(CFLAGS) $(INC) -c $< -o $@
+$(MLX):
+	@echo "Compiling Mlx [ .. ]"
+	@make -C libraries/mlx-linux
+	@echo "Mlx is ready! [ OK ]"
 
 run:
-	./cub3d "assets/maps/mandatory.cub"
+	./cub3d "assets/maps/map0.cub"
+
+resize:
+	mogrify -resize 32X32 $(IMG_DIR)/*.png && make img
+
+img:
+	convert $(IMG_DIR)/*.png -set filename:base "%[basename]" "%[filename:base].xpm" && mv *.xpm $(XPM_DIR)
 
 clean:
-				make -C $(LIBFT_DIR) fclean
-				make -C $(MLX_DIR) clean
-				@echo -e '\e[41;37;01m Executable deleted. \e[m'
+	@make -C ./libraries/libft clean
+	@make -C ./libraries/mlx-linux clean
+	@rm -rf obj
+	@echo "Objects files deleted."
 
-fclean:			clean
-				$(RM) obj
-				$(RM) $(NAME)
+fclean:		clean
+	@rm -f $(NAME) $(LIB) $(MLX)
+	@echo "Executable deleted."
 
-re:				fclean all
+bonus:		$(NAME)
 
-add:			fclean
-				git add .
-				git status
+norm:
+	norminette src inc libft
 
-install:
-				@sudo apt-get install libxext-dev libbsd-dev
+add: fclean
+		git add .
+		git status
 
-.PHONY:			all clean fclean re
+re:			fclean all
+
+.PHONY: all, clean, fclean, bonus, re
+

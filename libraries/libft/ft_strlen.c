@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/27 15:40:32 by joeduard          #+#    #+#             */
-/*   Updated: 2021/10/14 16:57:48 by joeduard         ###   ########.fr       */
+/*   Created: 2022/05/27 20:00:36 by joeduard          #+#    #+#             */
+/*   Updated: 2022/05/27 20:00:40 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ size_t	ft_strlen(const char *s)
 	size_t	i;
 
 	i = 0;
-	while (s[i] != '\0')
-	{
+	if (!s)
+		return (0);
+	while (*(s++))
 		i++;
-	}
 	return (i);
 }

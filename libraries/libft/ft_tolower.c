@@ -5,14 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/28 20:31:27 by joeduard          #+#    #+#             */
-/*   Updated: 2021/10/14 16:49:08 by joeduard         ###   ########.fr       */
+/*   Created: 2022/05/27 20:01:58 by joeduard          #+#    #+#             */
+/*   Updated: 2022/05/27 20:02:02 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
-		return (c + ('a' - 'A'));
+		c += 32;
 	return (c);
 }

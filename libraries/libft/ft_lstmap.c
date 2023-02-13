@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/10 18:59:18 by joeduard          #+#    #+#             */
-/*   Updated: 2021/06/10 18:59:18 by joeduard         ###   ########.fr       */
+/*   Created: 2022/05/27 19:54:31 by joeduard          #+#    #+#             */
+/*   Updated: 2022/05/27 19:54:35 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	while (lst)
 	{
 		elem = ft_lstnew(f(lst->content));
-		if (elem == 0)
+		if (!elem)
 		{
 			ft_lstclear(&new_lst, del);
 			return (0);

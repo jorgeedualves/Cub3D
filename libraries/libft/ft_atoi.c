@@ -5,34 +5,35 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/28 14:12:07 by joeduard          #+#    #+#             */
-/*   Updated: 2021/10/14 17:01:10 by joeduard         ###   ########.fr       */
+/*   Created: 2022/05/27 19:48:31 by joeduard          #+#    #+#             */
+/*   Updated: 2022/05/27 19:49:27 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-int	ft_atoi(const char *nptr)
+int	ft_atoi(const char *str)
 {
-	int	i;
-	int	sig;
-	int	concat;
+	int			res;
+	int			sign;
+	int			i;
 
+	res = 0;
+	sign = 1;
 	i = 0;
-	sig = 1;
-	concat = 0;
-	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
+	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' || str[i] == '\r'
+		|| str[i] == '\v' || str[i] == '\f')
 		i++;
-	if (nptr[i] == '+' || nptr[i] == '-')
+	if (str[i] == '-' || str[i] == '+')
 	{
-		if (nptr[i] == '-')
-			sig *= -1;
+		if (str[i] == '-')
+			sign = -1;
 		i++;
 	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		concat = (nptr[i] - '0') + (concat * 10);
+		res = res * 10 + str[i] - '0';
 		i++;
 	}
-	return (concat * sig);
+	return (res * sign);
 }

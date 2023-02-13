@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/10 18:55:32 by joeduard          #+#    #+#             */
-/*   Updated: 2021/06/10 18:55:32 by joeduard         ###   ########.fr       */
+/*   Created: 2022/05/27 19:51:43 by joeduard          #+#    #+#             */
+/*   Updated: 2022/05/27 19:51:50 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	t_list	*delete;
+	t_list	*aux;
 
-	while (*lst != NULL)
+	if (!*lst)
+		return ;
+	while (*lst)
 	{
-		delete = *lst;
-		*lst = (*lst)->next;
-		ft_lstdelone(delete, del);
+		aux = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = aux;
 	}
+	*lst = 0;
 }

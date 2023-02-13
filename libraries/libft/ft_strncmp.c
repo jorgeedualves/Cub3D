@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/27 21:08:05 by joeduard          #+#    #+#             */
-/*   Updated: 2021/10/14 16:56:18 by joeduard         ###   ########.fr       */
+/*   Created: 2022/05/27 20:00:54 by joeduard          #+#    #+#             */
+/*   Updated: 2022/05/27 20:01:04 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,15 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t	i;
-
-	if (n == 0)
-		return (0);
-	i = 0;
-	while (s1[i] == s2[i] && s1[i] != '\0')
+	while (n > 0 && *s1 && *s2)
 	{
-		if (i < (n - 1))
-			i++;
-		else
-			return (0);
+		if ((unsigned char)(*s1) != (unsigned char)(*s2))
+			return ((unsigned char)(*s1) - (unsigned char)(*s2));
+		n--;
+		s1++;
+		s2++;
 	}
-	return ((unsigned char)(s1[i]) - (unsigned char)(s2[i]));
+	if (n != 0 && (unsigned char)(*s1) != (unsigned char)(*s2))
+		return ((unsigned char)(*s1) - (unsigned char)(*s2));
+	return (0);
 }

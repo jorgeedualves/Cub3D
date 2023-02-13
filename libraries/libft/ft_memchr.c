@@ -5,25 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/24 15:10:26 by joeduard          #+#    #+#             */
-/*   Updated: 2021/10/14 16:53:59 by joeduard         ###   ########.fr       */
+/*   Created: 2022/05/27 19:55:51 by joeduard          #+#    #+#             */
+/*   Updated: 2022/05/27 19:55:56 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *str, int c, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t	i;
+	const char	*str;
 
-	i = 0;
-	while (i < n)
+	str = (const char *)s;
+	while (n-- > 0)
 	{
-		if (((unsigned char *)str)[i] == (unsigned char)c)
-		{
-			return ((void *)(str + i));
-		}
-		i++;
+		if (*str == (c % 256))
+			return ((void *)(str));
+		else
+			str++;
 	}
-	return (0);
+	return (NULL);
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/04 23:22:46 by joeduard          #+#    #+#             */
-/*   Updated: 2021/10/14 17:00:13 by joeduard         ###   ########.fr       */
+/*   Created: 2022/05/27 19:50:35 by joeduard          #+#    #+#             */
+/*   Updated: 2022/05/27 19:50:39 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,16 +46,16 @@ char	*ft_itoa(int n)
 		sign = -1;
 	else
 		sign = 1;
-	len = ft_len (n);
+	len = ft_len(n);
 	result = (char *)malloc(sizeof(char) * len + 1);
-	if (result == 0)
+	if (result == NULL)
 		return (0);
 	result[len] = '\0';
 	len--;
 	while (len >= 0)
 	{
-		result[len] = '0' + ft_to_positive (n % 10);
-		n = ft_to_positive (n / 10);
+		result[len] = '0' + ft_to_positive(n % 10);
+		n = ft_to_positive(n / 10);
 		len--;
 	}
 	if (sign == -1)

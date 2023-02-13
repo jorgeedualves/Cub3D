@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/24 21:51:07 by joeduard          #+#    #+#             */
-/*   Updated: 2021/05/24 21:51:07 by joeduard         ###   ########.fr       */
+/*   Created: 2022/05/27 19:57:03 by joeduard          #+#    #+#             */
+/*   Updated: 2022/05/27 19:57:08 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,18 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t	i;
+	const char	*t1;
+	const char	*t2;
 
-	i = 0;
-	while (i < n)
+	t1 = (const char *)s1;
+	t2 = (const char *)s2;
+	while (n > 0)
 	{
-		if (((unsigned char *)s1)[i] != ((unsigned char *)s2)[i])
-			return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
-		i++;
+		if (*t1 != *t2)
+			return ((unsigned char)*t1 - (unsigned char)*t2);
+		t1++;
+		t2++;
+		n--;
 	}
 	return (0);
 }

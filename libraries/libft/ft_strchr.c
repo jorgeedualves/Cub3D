@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/26 23:14:40 by joeduard          #+#    #+#             */
-/*   Updated: 2021/10/14 16:55:42 by joeduard         ###   ########.fr       */
+/*   Created: 2022/05/27 19:59:06 by joeduard          #+#    #+#             */
+/*   Updated: 2022/05/27 19:59:09 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s != '\0' && *s != (c % 256))
+	while (*s && *s != (c % 256))
 		s++;
-	if (*s == '\0' && (c % 256) != '\0')
-		return (0);
-	else
+	if (*s == (c % 256))
 		return ((char *)s);
+	return (0);
 }

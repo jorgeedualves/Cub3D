@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/09 22:31:13 by joeduard          #+#    #+#             */
-/*   Updated: 2021/10/14 16:58:38 by joeduard         ###   ########.fr       */
+/*   Created: 2022/05/27 19:55:12 by joeduard          #+#    #+#             */
+/*   Updated: 2022/05/27 19:55:16 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 t_list	*ft_lstnew(void *content)
 {
-	t_list	*n;
+	t_list	*new;
 
-	n = (t_list *)malloc(sizeof(t_list));
-	if (n == NULL)
+	new = (t_list *)malloc(sizeof(t_list));
+	if (!new)
 		return (NULL);
-	n->content = content;
-	n->next = NULL;
-	return (n);
+	new->content = content;
+	new->next = NULL;
+	return (new);
 }

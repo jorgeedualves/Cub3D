@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_super_free.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/23 16:28:09 by joeduard          #+#    #+#             */
-/*   Updated: 2021/10/14 16:53:10 by joeduard         ###   ########.fr       */
+/*   Created: 2022/05/27 20:01:46 by joeduard          #+#    #+#             */
+/*   Updated: 2022/11/28 04:23:57 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 
 void	ft_super_free(void **ptr)
 {
-	if (*ptr)
-	{
+	if (*ptr != NULL)
 		free(*ptr);
-		*ptr = NULL;
-	}
+	*ptr = NULL;
 }

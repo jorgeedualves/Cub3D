@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/29 22:31:50 by joeduard          #+#    #+#             */
-/*   Updated: 2021/05/29 22:31:50 by joeduard         ###   ########.fr       */
+/*   Created: 2022/05/27 20:01:39 by joeduard          #+#    #+#             */
+/*   Updated: 2022/05/27 20:01:42 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (s == 0)
 		return (0);
 	substr_len = ft_strlen(s);
-	if (substr_len < len)
+	if (len > substr_len - start)
+		substr = (char *)malloc((substr_len - start + 1) * sizeof(char));
+	else if (substr_len < len)
 		substr = (char *)malloc((substr_len + 1) * sizeof(char));
 	else
 		substr = (char *)malloc((len + 1) * sizeof(char));

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/10 18:46:40 by joeduard          #+#    #+#             */
-/*   Updated: 2021/06/10 18:46:40 by joeduard         ###   ########.fr       */
+/*   Created: 2022/05/27 19:50:55 by joeduard          #+#    #+#             */
+/*   Updated: 2022/05/27 19:50:59 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,15 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list	*last;
+	t_list	*aux;
 
-	last = ft_lstlast(*lst);
-	if (last != NULL)
-		last->next = new;
-	else
+	if (!new)
+		return ;
+	if (!*lst)
+	{
 		*lst = new;
+		return ;
+	}
+	aux = ft_lstlast(*lst);
+	aux->next = new;
 }

@@ -5,20 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/28 23:48:55 by joeduard          #+#    #+#             */
-/*   Updated: 2021/10/14 16:54:17 by joeduard         ###   ########.fr       */
+/*   Created: 2022/05/27 19:59:23 by joeduard          #+#    #+#             */
+/*   Updated: 2022/05/27 19:59:28 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+char	*ft_strdup(const char *s1)
 {
-	char	*dup;
+	int		i;
+	int		size;
+	char	*new;
 
-	dup = (char *)malloc (ft_strlen (s) + 1);
-	if (dup == 0)
-		return (0);
-	ft_memcpy (dup, s, ft_strlen(s) + 1);
-	return (dup);
+	i = 0;
+	size = ft_strlen(s1);
+	new = (char *)ft_calloc(size + 1, sizeof(char));
+	if (new != NULL)
+	{
+		while (i < size)
+		{
+			new[i] = s1[i];
+			i++;
+		}
+	}
+	return (new);
 }

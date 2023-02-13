@@ -5,19 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/28 15:03:58 by joeduard          #+#    #+#             */
-/*   Updated: 2021/05/28 15:03:58 by joeduard         ###   ########.fr       */
+/*   Created: 2022/05/27 19:49:45 by joeduard          #+#    #+#             */
+/*   Updated: 2022/05/27 19:49:49 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_isalpha(int c)
 {
-	if ((c < 65 || c > 90) && (c < 97 || c > 122))
-	{
-		return (0);
-	}
-	else
-	{
+	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
 		return (1);
-	}
+	return (0);
 }

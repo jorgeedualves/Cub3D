@@ -5,14 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/28 19:44:00 by joeduard          #+#    #+#             */
-/*   Updated: 2021/05/28 19:44:00 by joeduard         ###   ########.fr       */
+/*   Created: 2022/05/27 19:50:14 by joeduard          #+#    #+#             */
+/*   Updated: 2022/05/27 19:50:18 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_isprint(int c)
 {
-	if (c >= 32 && c <= 126)
+	if (c > 31 && c < 127)
 		return (1);
 	return (0);
 }

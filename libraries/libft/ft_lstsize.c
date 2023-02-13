@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/10 18:40:26 by joeduard          #+#    #+#             */
-/*   Updated: 2021/06/10 18:40:26 by joeduard         ###   ########.fr       */
+/*   Created: 2022/05/27 19:55:30 by joeduard          #+#    #+#             */
+/*   Updated: 2022/05/27 19:55:34 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@ int	ft_lstsize(t_list *lst)
 {
 	int	i;
 
-	if (lst == NULL)
-		return (0);
-	i = 1;
-	while (lst->next != NULL)
+	i = 0;
+	while (lst)
 	{
 		lst = lst->next;
 		i++;
