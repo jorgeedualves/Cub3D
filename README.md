@@ -9,7 +9,7 @@ This project is inspired by the world-famous 90's game Wolfenstein 3D, which was
 The objective of this project is to deep dive into the mathematical concepts behind the ray-casting algorithm such as calculating distances, height, sprite locations and field of view to create a projection using primarily trigonometry.
 
 ## Gameplay
-<img src="/assets/img/cub3d.png">
+<img src="/assets/img/cub3d.gif">
 
 ## Badge
 <img src="https://game.42sp.org.br/static/assets/achievements/cub3dm.png">
